@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Background styles */
+    body {
+        background-image: radial-gradient( circle 1588px at -27.3% 144%,  rgba(255,22,22,1) 0%, rgba(0,0,0,1) 43.4%, rgba(0,0,0,1) 65.8%, rgba(255,22,22,1) 100.2% );
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* Bubble container */
+    .bubbles {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Individual bubbles */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      animation: bubble-rise 10s linear infinite;
+    }
+
+    /* Bubbles rising animation */
+    @keyframes bubble-rise {
+      0% {
+        transform: translateY(100vh); /* Start from the bottom */
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh); /* Move to the top */
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dotted/Bubbly Animated Background -->
+  <div class="bubbles"></div>
+
+  <script>
+    // Function to generate random bubbles
+    function createBubbles() {
+      const bubbleContainer = document.querySelector('.bubbles');
+      const totalBubbles = 50; // Adjust the number of bubbles as needed
+  
+      for (let i = 0; i < totalBubbles; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Set random positions and animation timing
+        const x = Math.random() * 100; // Random X position
+        const size = Math.random() * 30 + 20; // Random size between 20px and 50px
+        const delay = Math.random() * 5 + 's'; // Random delay for animation
+        const duration = Math.random() * 5 + 10 + 's'; // Random duration for animation
+        
+        // Apply styles to bubbles
+        bubble.style.left = `${x}%`;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.animationDelay = delay;
+        bubble.style.animationDuration = duration;
+        
+        bubbleContainer.appendChild(bubble);
+      }
+    }
+  
+    window.addEventListener('load', createBubbles);
+  </script>
+
+  <!-- Navigation Section -->
+  <div class="container-fluid py-3">
+    <div class="d-flex justify-content-center align-items-center flex-column flex-sm-row gap-3">
+      <div class="navbar-wrapper">
+        <div class="nav-wrapper">
+          <div class="nav-item active">
+            <a href="index.html" class="text-light"><i class="fas fa-home"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="premium.html" class="text-light"><i class="fas fa-fire"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="services.html" class="text-light"><i class="fas fa-bolt"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="login.html" class="text-light"><i class="fas fa-user"></i></a>
+          </div>
+          <div class="indicator"></div>
+        </div>
+      </div>
+      <div class="logo mt-3 mt-sm-0">
+        <a href="#"><img src="logo-removebg-preview.png" alt="Logo" style="max-width: 100px;"></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.nav-item');
+    const indicator = document.querySelector('.indicator');
+    const flameIcon = document.querySelector('.nav-item:nth-child(2)'); // Get the flame icon (second nav item)
+  
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        // Remove old active and animation
+        items.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+    
+        // Move indicator
+        const offsetLeft = item.offsetLeft;
+        indicator.style.left = offsetLeft + 'px';
+    
+        // If the flame icon is clicked, add the jump animation
+        if (item === flameIcon) {
+          indicator.classList.add('indicator-jump');
+        } else {
+          indicator.classList.remove('indicator-jump');
+        }
+      });
+    });
+  
+    // Initial setup when the page loads
+    window.addEventListener('load', () => {
+      const active = document.querySelector('.nav-item.active');
+      indicator.style.left = active.offsetLeft + 'px';
+  
+      // Trigger the jump animation if the Premium page is active
+      if (flameIcon.classList.contains('active')) {
+        indicator.classList.add('indicator-jump');
+      }
+    });
+  
+    // Reset the animation on window resize
+    window.addEventListener('resize', () => {
+      const active = document.querySelector('.nav-item.active');
+      indicator.style.left = active.offsetLeft + 'px';
+    });
+  </script>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <form action="#" method="POST">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#">Sign Up</a></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

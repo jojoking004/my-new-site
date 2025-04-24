@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium GlowUp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/> 
+    <link rel="stylesheet" href="premium.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body> 
+
+ <!-- Navigation Section -->
+<!-- Navigation Section -->
+<div class="container-fluid py-3">
+    <div class="d-flex justify-content-center align-items-center flex-column flex-sm-row gap-3">
+      <div class="navbar-wrapper">
+        <div class="nav-wrapper">
+          <div class="nav-item active">
+            <a href="index.html" class="text-light"><i class="fas fa-home"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="premium.html" class="text-light"><i class="fas fa-fire"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="services.html" class="text-light"><i class="fas fa-bolt"></i></a>
+          </div>
+          <div class="nav-item">
+            <a href="login.html" class="text-light"><i class="fas fa-user"></i></a>
+          </div>
+          <div class="indicator"></div>
+        </div>
+      </div>
+      <div class="logo mt-3 mt-sm-0">
+        <a href="#"><img src="logo-removebg-preview.png" alt="Logo" style="max-width: 100px;"></a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const items = document.querySelectorAll('.nav-item');
+  const indicator = document.querySelector('.indicator');
+  const flameIcon = document.querySelector('.nav-item:nth-child(2)'); // Get the flame icon (second nav item)
+  
+  items.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    // Remove old active and animation
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  
+    // Move indicator
+    const offsetLeft = item.offsetLeft;
+    indicator.style.left = offsetLeft + 'px';
+  
+    // If the flame icon is clicked, add the jump animation
+    if (item === flameIcon) {
+      indicator.classList.add('indicator-jump');
+    } else {
+      indicator.classList.remove('indicator-jump');
+    }
+  });
+  });
+  
+  // Initial setup when the page loads
+  window.addEventListener('load', () => {
+  const active = document.querySelector('.nav-item.active');
+  indicator.style.left = active.offsetLeft + 'px';
+  
+  // Trigger the jump animation if the Premium page is active
+  if (flameIcon.classList.contains('active')) {
+    indicator.classList.add('indicator-jump');
+  }
+  });
+  
+  // Reset the animation on window resize
+  window.addEventListener('resize', () => {
+  const active = document.querySelector('.nav-item.active');
+  indicator.style.left = active.offsetLeft + 'px';
+  });
+  
+  </script>
+    <!-- Hero Section -->
+    <section class="hero-section py-5 px-3 px-md-5">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                    <h1 class="hero-title">Unleash Your Premium Glow ✨</h1>
+                    <p class="hero-subtitle">Experience the best of beauty, care, and elegance with our exclusive premium products.</p>
+                    <a href="#" class="btn btn-hero mt-3">Shop Premium Now</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="hero.jpg" class="img-fluid hero-img" alt="Luxurious Premium Beauty">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- premium products -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" class="active" aria-current="true" aria-label="Slide 8"></button>
+        </div>
+        <!-- one -->
+        <div class="carousel-inner rounded-3">
+          <div class="carousel-item active">
+            <img src="soap.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>soap</h5>
+              <p>soap for sensitive skin</p>
+            </div>
+          </div>
+          <!-- two -->
+          <div class="carousel-item">
+            <img src="serum.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>serum</h5>
+              <p>Sserum for you</p>
+            </div>
+          </div>
+          <!--three  -->
+          <div class="carousel-item">
+            <img src="serums-2.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>serums-2</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <!--four  -->
+          <div class="carousel-item">
+            <img src="pearl serum.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>pearl serum</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <!-- five -->
+          <div class="carousel-item">
+            <img src="package.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>first package</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <!-- six -->
+          <div class="carousel-item">
+            <img src="package-2.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>korean package</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <!-- seven -->
+          <div class="carousel-item">
+            <img src="lip gloss.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>lip gloss</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <!-- eight -->
+          <div class="carousel-item">
+            <img src="facewash.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>salicylic facewash</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br><br>
+      <h1 class="text-center animate-glow2 text-light" >our premium products</h1>
+      <br><br><br><br>
+      
+    <!-- Premium Features Section -->
+<section class="premium-features-section py-5">
+    <div class="container">
+      <h2 class="premium-title mb-4 text-center animate-glow">🌟 Premium Features</h2>
+      <p class="premium-subtitle mb-5 text-center animate-fade">Elevate your beauty routine with our top-tier services.</p>
+  
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="premium-feature-card text-center p-4 animate-up">
+            <h4 class="feature-title">💎 Exclusive Products</h4>
+            <p>Handpicked, high-end products designed to take your glow to the next level.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="premium-feature-card text-center p-4 animate-up" style="animation-delay: 0.2s;">
+            <h4 class="feature-title">✨ VIP Services</h4>
+            <p>Experience a personalized beauty service with our expert consultants.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="premium-feature-card text-center p-4 animate-up" style="animation-delay: 0.4s;">
+            <h4 class="feature-title">🎁 Exclusive Offers</h4>
+            <p>Access to exclusive deals, discounts, and promotions available only for premium members.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Testimonials Section -->
+<section class="testimonials-section py-5">
+    <div class="container text-center">
+      <h2 class="testimonials-title mb-3 animate-glow">🌸 What Our Premium Members Say</h2>
+      <p class="testimonials-subtitle mb-5 animate-fade">See what people are saying about their premium experience with us.</p>
+  
+      <div class="testimonials-cards d-flex flex-column flex-md-row justify-content-center gap-4">
+        <div class="testimonial-card animate-float">
+          <p class="testimonial-text">"The premium products and services have completely transformed my skincare routine. Worth every penny!"</p>
+          <p class="testimonial-author">- Emma J.</p>
+        </div>
+        <div class="testimonial-card animate-float" style="animation-delay: 0.2s;">
+          <p class="testimonial-text">"I feel like a VIP every time I use the premium services. Highly recommend!"</p>
+          <p class="testimonial-author">- Sarah L.</p>
+        </div>
+        <div class="testimonial-card animate-float" style="animation-delay: 0.4s;">
+          <p class="testimonial-text">"I’ve never experienced such personalized care before. Truly a luxury experience."</p>
+          <p class="testimonial-author">- Amanda K.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Stay Glowing!</h2>
+            <p>Follow us on social media to stay updated on the latest premium offers and news!</p>
+            <div class="social-links">
+                <a href="#" class="social-icon fb"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-icon ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="copyright">© 2025 GlowUp Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
