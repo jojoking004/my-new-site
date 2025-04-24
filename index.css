@@ -825,3 +825,40 @@ body {
   color: #d8d8d8;
   margin: 0;
 }
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem; /* Reduce size for smaller screens */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem; /* Reduce size for smaller screens */
+  }
+}
+
+/* Card responsiveness */
+@media (max-width: 576px) {
+  .glow-card, .essence-card, .impact-card {
+    margin-bottom: 20px; /* Adjust card margin for small devices */
+  }
+
+  .expert-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .expert-info {
+    position: relative;
+    bottom: auto;
+  }
+}
+
+/* Adjusting the layout of sections */
+@media (max-width: 768px) {
+  .glowup-section, .essence-section, .impact-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
